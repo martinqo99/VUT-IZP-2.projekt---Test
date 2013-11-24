@@ -7,7 +7,7 @@
 # Repozitář:  https://github.com/lucansky/VUT-IZP-2.projekt---Test.git
 
 # Hladanie binarky, kvoli clonovaniu gitu od ineho adresara
-exec=`find .. -name "proj2" | tail -n"1"`
+exec=`find . -name "proj2" | tail -n"1"`
 echo "${exec}"
 
 if [ "${exec}" = "" ]
@@ -137,6 +137,49 @@ else
         echo " ... Chyba";
 fi
 
+echo "\n[test_12] Test --asin 2e15";
+$exec --asin 2e15  > test/test_12.output
+diff test/test_12.test test/test_12.output
+
+if [ "$?" = "0" ]; then
+  echo " ... OK";
+  rm test/test_12.output
+else
+        echo " ... Chyba";
+fi
+
+echo "\n[test_13] Test --triangle 0 0 1.e-12 0 0 -4.e-11";
+$exec --triangle 0 0 1.e-12 0 0 -4.e-11 > test/test_13.output
+diff test/test_13.test test/test_13.output
+
+if [ "$?" = "0" ]; then
+  echo " ... OK";
+  rm test/test_13.output
+else
+        echo " ... Chyba";
+fi
+
+echo "\n[test_14] Test --asin inf";
+$exec --asin inf > test/test_14.output
+diff test/test_14.test test/test_14.output
+
+if [ "$?" = "0" ]; then
+  echo " ... OK";
+  rm test/test_14.output
+else
+        echo " ... Chyba";
+fi
+
+echo "\n[test_15] Test --sqrt inf";
+$exec --sqrt inf > test/test_15.output
+diff test/test_15.test test/test_15.output
+
+if [ "$?" = "0" ]; then
+  echo " ... OK";
+  rm test/test_15.output
+else
+        echo " ... Chyba";
+fi
 
 echo "\n[test_12] Test zda nespadne pri nesmyslnem vstupu";
 $exec --triangle "You know nuffin Jon Snow" > /dev/null 2>&1
