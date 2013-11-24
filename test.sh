@@ -181,7 +181,7 @@ else
         echo " ... Chyba";
 fi
 
-echo "\n[test_12] Test zda nespadne pri nesmyslnem vstupu";
+echo "\n[test_16] Test zda nespadne pri nesmyslnem vstupu";
 $exec --triangle "You know nuffin Jon Snow" > /dev/null 2>&1
 if [ "$?" != "0" ]; then
   echo " ... OK";
@@ -205,7 +205,7 @@ else
 fi
 
 # Pre istotu
-echo "\n[test_13] Test ci program vracia status 0 pri spravnom behu";
+echo "\n[test_17] Test ci program vracia status 0 pri spravnom behu";
 $exec --sqrt 2  > /dev/null 2>&1
 if [ "$?" = "0" ]; then
   echo " ... OK";
