@@ -7,7 +7,7 @@
 # Repozitář:  https://github.com/lucansky/VUT-IZP-2.projekt---Test.git
 
 # Hladanie binarky, kvoli clonovaniu gitu od ineho adresara
-exec=`find . -name "proj2" | tail -n"1"`
+exec=`find .. -name "proj2" | tail -n"1"`
 echo "${exec}"
 
 if [ "${exec}" = "" ]
